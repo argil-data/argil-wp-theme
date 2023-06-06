@@ -1,4 +1,4 @@
-# argil-wordpress-theme
+# Argil WordPress Theme
 
-Argil is a basic and optimized wordpress theme.
+Argil is a basic free WordPress theme.
 

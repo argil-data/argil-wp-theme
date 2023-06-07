@@ -56,7 +56,7 @@ function argil_scripts()
     global $is_IE, $wp_scripts;
     if ($is_IE) {
         // If IE 11 or below, use a flattened stylesheet with static values replacing CSS Variables.
-        wp_enqueue_style('argil-style', get_template_directory_uri() . '/assets/css/ie.css', array(), wp_get_theme()->get('Version'));
+        wp_enqueue_style('argil-style', get_template_directory_uri() . '/assets_alt/css/ie.css', array(), wp_get_theme()->get('Version'));
     } else {
         // If not IE, use the standard stylesheet.
         wp_enqueue_style('argil-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get('Version'));
@@ -66,7 +66,7 @@ function argil_scripts()
     wp_style_add_data('argil-style', 'rtl', 'replace');
 
     // Print styles.
-    wp_enqueue_style('argil-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get('Version'), 'print');
+    wp_enqueue_style('argil-print-style', get_template_directory_uri() . '/assets_alt/css/print.css', array(), wp_get_theme()->get('Version'), 'print');
 
     // Threaded comment reply styles.
     if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -76,7 +76,7 @@ function argil_scripts()
     // Register the IE11 polyfill file.
     wp_register_script(
         'argil-ie11-polyfills-asset',
-        get_template_directory_uri() . '/assets/js/polyfills.js',
+        get_template_directory_uri() . '/assets_alt/js/polyfills.js',
         array(),
         wp_get_theme()->get('Version'),
         true
@@ -104,7 +104,7 @@ function argil_scripts()
     if (has_nav_menu('primary')) {
         wp_enqueue_script(
             'argil-primary-navigation-script',
-            get_template_directory_uri() . '/assets/js/primary-navigation.js',
+            get_template_directory_uri() . '/assets_alt/js/primary-navigation.js',
             array('argil-ie11-polyfills'),
             wp_get_theme()->get('Version'),
             true
@@ -114,7 +114,7 @@ function argil_scripts()
     // Responsive embeds script.
     wp_enqueue_script(
         'argil-responsive-embeds-script',
-        get_template_directory_uri() . '/assets/js/responsive-embeds.js',
+        get_template_directory_uri() . '/assets_alt/js/responsive-embeds.js',
         array('argil-ie11-polyfills'),
         wp_get_theme()->get('Version'),
         true
@@ -122,6 +122,25 @@ function argil_scripts()
 }
 add_action('wp_enqueue_scripts', 'argil_scripts');
 
+// NEW WORDPLATE with VITE
+// Register scripts and styles.
+add_action('wp_enqueue_scripts', function () {
+    $manifestPath = get_theme_file_path('assets/manifest.json');
+
+    if (
+        wp_get_environment_type() === 'local' &&
+        is_array(wp_remote_get('http://localhost:5173/')) // is Vite.js running
+    ) {
+
+        wp_enqueue_script('vite', 'http://localhost:5173/@vite/client', [], null);
+        wp_enqueue_script('argil', 'http://localhost:5173/resources/js/index.js', [], null);
+    } elseif (file_exists($manifestPath)) {
+
+        $manifest = json_decode(file_get_contents($manifestPath), true);
+        wp_enqueue_script('argil', get_theme_file_uri('assets/' . $manifest['resources/js/index.js']['file']), [], null);
+        wp_enqueue_style('argil', get_theme_file_uri('assets/' . $manifest['resources/js/index.css']['file']), [], null);
+    }
+});
 
 /**
  * Proper way to enqueue scripts and styles
@@ -130,10 +149,10 @@ function argil_styles_enqueuing()
 {
     // global $wp_styles;
     // wp_enqueue_style('style', get_stylesheet_uri());
-    wp_register_style('argil', get_template_directory_uri() . '/assets/css/main.css', array(), '1.6.0', 'all');
-    wp_register_style('argil-bundle', get_template_directory_uri() . '/assets/css/bundle.css', array(), '1.6.0', 'all');
-    // wp_register_style('ada-editor', get_template_directory_uri() . '/assets/dist/editor.css', array('argil'), '1.6.0', 'all');
-    // wp_register_style('ada-admin', get_template_directory_uri() . '/assets/css/admin.css', array('argil'), '1.6.0', 'all');
+    wp_register_style('argil', get_template_directory_uri() . '/assets_alt/css/main.css', array(), wp_get_theme()->get('Version'), 'all');
+    // wp_register_style('argil-bundle', get_template_directory_uri() . '/assets_alt/css/bundle.css', array(), wp_get_theme()->get('Version'), 'all');
+    // wp_register_style('ada-editor', get_template_directory_uri() . '/assets_alt/dist/editor.css', array('argil'), wp_get_theme()->get('Version'), 'all');
+    // wp_register_style('ada-admin', get_template_directory_uri() . '/assets_alt/css/admin.css', array('argil'), wp_get_theme()->get('Version'), 'all');
 
     wp_enqueue_style('argil');
     // wp_enqueue_style('argil-bundle');
@@ -154,17 +173,17 @@ function argil_scripts_enqueuing()
     // wp_enqueue_script('swiper', 'https://unpkg.com/swiper@8/swiper-bundle.min.js', array(), '', true);
 
     $theme = wp_get_theme();
-    wp_register_script('argil-vendor', get_template_directory_uri() . '/assets/js/vendor.js', array(), '1.6.0', true);
-    wp_register_script('argil', get_template_directory_uri() . '/assets/js/main.js', array(), '1.6.0', true);
-    wp_register_script('argil-bundle', get_template_directory_uri() . '/assets/js/bundle.js', array(), '1.6.0', true);
-    wp_enqueue_script('manifest', get_template_directory_uri() . '/assets/js/manifest.js', array(), $theme->get('Version'), true);
+    wp_register_script('argil-vendor', get_template_directory_uri() . '/assets_alt/js/vendor.js', array(), wp_get_theme()->get('Version'), true);
+    wp_register_script('argil', get_template_directory_uri() . '/assets_alt/js/main.js', array(), wp_get_theme()->get('Version'), true);
+    wp_register_script('argil-bundle', get_template_directory_uri() . '/assets_alt/js/bundle.js', array(), wp_get_theme()->get('Version'), true);
+    wp_enqueue_script('manifest', get_template_directory_uri() . '/assets_alt/js/manifest.js', array(), $theme->get('Version'), true);
     wp_enqueue_script('argil-vendor');
     wp_enqueue_script('argil');
     wp_enqueue_script('argil-bundle');
 
     // Threaded comment reply styles.
     if (is_page('community') || is_archive('ada_labs')) {
-        wp_register_script('page-labs', get_template_directory_uri() . '/assets/js/page-labs.js', array(), '1.6.0', true);
+        wp_register_script('page-labs', get_template_directory_uri() . '/assets_alt/js/page-labs.js', array(), '1.6.0', true);
         wp_enqueue_script('page-labs');
     }
 }
@@ -191,6 +210,6 @@ add_action('wp_enqueue_scripts', 'argil_load_scripts');
  */
 function argil_block_editor_script()
 {
-    wp_enqueue_script('argil-editor', get_theme_file_uri('/assets/js/editor.js'), array('wp-blocks', 'wp-dom'), wp_get_theme()->get('Version'), true);
+    wp_enqueue_script('argil-editor', get_theme_file_uri('/assets_alt/js/editor.js'), array('wp-blocks', 'wp-dom'), wp_get_theme()->get('Version'), true);
 }
 add_action('enqueue_block_editor_assets', 'argil_block_editor_script');

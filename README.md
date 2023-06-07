@@ -1,4 +1,4 @@
 # Argil WordPress Theme
 
-Argil is a basic free WordPress theme.
+Argil is a basic free WordPress block theme.
 

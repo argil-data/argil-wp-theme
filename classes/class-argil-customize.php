@@ -117,10 +117,10 @@ if (!class_exists('argil_Customize')) {
 
             // Background color.
             // Include the custom control class.
-            include_once get_theme_file_path('classes/class-argil-customize-color-control.php'); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+            // include_once get_theme_file_path('classes/class-argil-customize-color-control.php'); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
             // Register the custom control.
-            $wp_customize->register_control_type('argil_Customize_Color_Control');
+            // $wp_customize->register_control_type('argil_Customize_Color_Control');
 
             // Get the palette from theme-supports.
             $palette = get_theme_support('editor-color-palette');
@@ -134,17 +134,17 @@ if (!class_exists('argil_Customize')) {
             }
 
             // Add the control. Overrides the default background-color control.
-            $wp_customize->add_control(
-                new argil_Customize_Color_Control(
-                    $wp_customize,
-                    'background_color',
-                    array(
-                        'label'   => esc_html_x('Background color', 'Customizer control', 'argil'),
-                        'section' => 'colors',
-                        'palette' => $colors,
-                    )
-                )
-            );
+            // $wp_customize->add_control(
+            //     new argil_Customize_Color_Control(
+            //         $wp_customize,
+            //         'background_color',
+            //         array(
+            //             'label'   => esc_html_x('Background color', 'Customizer control', 'argil'),
+            //             'section' => 'colors',
+            //             'palette' => $colors,
+            //         )
+            //     )
+            // );
         }
 
         /**

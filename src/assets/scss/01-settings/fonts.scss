@@ -1,0 +1,13 @@
+// Do we need to serve a font? Add the @font-face styles here.
+@font-face {
+  font-family: "Red Hat Display";
+  src:  url("/assets/fonts/RedHatDisplay-VariableFont_wght") format("ttf");
+}
+@font-face {
+  font-family: "Red Hat Text";
+  src:  url("/assets/fonts/RedHatText-VariableFont_wght") format("ttf");
+}
+@font-face {
+  font-family: "Red Hat Mono";
+  src:  url("/assets/fonts/RedHatText-VariableFont_wght") format("ttf");
+}

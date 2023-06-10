@@ -1,0 +1,606 @@
+// BUNDLED from /resources/src/sass/
+/**
+ * SETTINGS
+ * File-header..........The file header for the themes style.css file.
+ * Fonts................Any font files, if the project needs specific fonts.
+ * Global...............Project-specific, globally available variables.
+ *
+ * TOOLS
+ * Functions............Global functions.
+ * Mixins...............Global mixins.
+ *
+ * GENERIC
+ * Normalize.css........Normalise browser defaults.
+ * Breakpoints..........Mixins and variables for responsive styles
+ * Vertical-margins.....Vertical spacing for the main components.
+ * Reset................Reset specific elements to make them easier to style in other contexts.
+ * Clearings............Clearings for the main components.
+ *
+ * ELEMENTS
+ * Blockquote...........Default blockquote.
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ *
+ * BLOCKS
+ * Audio................Specific styles for the audio block.
+ * Button...............Specific styles for the button block.
+ * Code.................Specific styles for the code block.
+ * Columns..............Specific styles for the columns block.
+ * Cover................Specific styles for the cover block.
+ * File.................Specific styles for the file block.
+ * Gallery..............Specific styles for the gallery block.
+ * Group................Specific styles for the group block.
+ * Heading..............Specific styles for the heading block.
+ * Image................Specific styles for the image block.
+ * Latest comments......Specific styles for the latest comments block.
+ * Latest posts.........Specific styles for the latest posts block.
+ * Legacy...............Specific styles for the legacy gallery.
+ * List.................Specific styles for the list block.
+ * Media text...........Specific styles for the media and text block.
+ * Navigation...........Specific styles for the navigation block.
+ * Paragraph............Specific styles for the paragraph block.
+ * Pullquote............Specific styles for the pullquote block.
+ * Quote................Specific styles for the quote block.
+ * Search...............Specific styles for the search block.
+ * Separator............Specific styles for the separator block.
+ * Spacer...............Specific styles for the spacer block.
+ * Table................Specific styles for the table block.
+ * Verse................Specific styles for the verse block.
+ * Video................Specific styles for the video block.
+ * Utilities............Block alignments.
+ *
+ * COMPONENTS
+ * Header...............Header styles.
+ * Footer...............Footer styles.
+ * Comments.............Comment styles.
+ * Archives.............Archive styles.
+ * 404..................404 styles.
+ * Search...............Search styles.
+ * Navigation...........Navigation styles.
+ * Footer Navigation....Footer Navigation styles.
+ * Pagination...........Pagination styles.
+ * Single...............Single page and post styles.
+ * Posts and pages......Misc, sticky post styles.
+ * Entry................Entry, author biography.
+ * Widget...............Widget styles.
+ * Editor...............Editor styles.
+ *
+ * UTILITIES
+ * A11y.................Screen reader text, prefers reduced motion etc.
+ * Color Palette........Classes for the color palette colors.
+ * Editor Font Sizes....Editor Font Sizes.
+ * Measure..............The width of a line of text, in characters.
+ */
+
+// Print................Print styles
+
+/*
+ * Externals:
+ */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap');
+
+/*
+ * NPM packages:
+ */
+// SWIPER JS
+@import "node_modules/swiper/swiper.scss";
+// @import "~swiper/swiper.scss";
+
+// @import "~font-awesome/scss/font-awesome";
+// $fa-font-path: '../../node_modules/@fortawesome/fontawesome-free/webfonts';
+// @import '../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+// @import '../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
+// @import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+
+// @import '~purecss/build/grids.css';
+// @import '~purecss/build/grids-core.css';
+// @import '~purecss/build/grids-responsive.css';
+
+// @import '../../../node_modules/slick-carousel/slick/slick.scss';
+
+/* Categories 01 to 03 are the basics. */
+@import "01-settings/fonts";
+@import "01-settings/global";
+
+@import "02-tools/mixins";
+@import "02-tools/functions";
+
+@import "03-generic/normalize";
+@import "03-generic/breakpoints";
+@import "03-generic/vertical-margins";
+@import "03-generic/reset";
+@import "03-generic/clearings";
+
+/* Category 04 can contain any default HTML element. Do not add classes here, just give the elements some basic styles. */
+@import "04-elements/blockquote";
+@import "04-elements/forms";
+@import "04-elements/media";
+@import "04-elements/misc";
+@import "04-elements/links";
+
+/* Category 05 is all about adjusting the default block styles to the given layout. I only added three blocks as examples. */
+// @import "05-blocks/blocks";
+
+/* Category 06 contains all "bigger" components which contain elements of the previous two categories like header, footer, page template, single template, comments section, archives, ... */
+@import "06-components/header";
+@import "06-components/footer";
+@import "06-components/single";
+@import "06-components/posts-and-pages";
+@import "06-components/entry";
+@import "06-components/archives";
+@import "06-components/archive-labs";
+@import "06-components/404";
+@import "06-components/search";
+@import "06-components/comments";
+@import "06-components/navigation";
+@import "06-components/footer-navigation";
+@import "06-components/pagination";
+@import "06-components/widgets";
+
+/* Category 07 is for any utility classes that are not assigned to a specific component. */
+@import "07-utilities/a11y";
+@import "07-utilities/color-palette";
+@import "07-utilities/measure";
+@import "07-utilities/ie";
+
+// FROM WP 21theme base + Custom predev
+// Need to merge the boths
+
+@import './settings/global';
+@import './settings/colors';
+@import './settings/break-points';
+@import './settings/typography';
+
+@import './tools/units';
+@import './tools/breakpoint';
+
+// @import './generic/normalize';
+@import './generic/box-sizing';
+
+@import './elements/general';
+@import './elements/typography';
+@import './elements/form';
+@import './elements/print';
+
+$fa-font-path: "../webfonts";
+@import './fontawesome/fontawesome.scss';
+@import './fontawesome/solid.scss';
+@import './fontawesome/brands.scss';
+
+@import './objects/wp';
+@import './objects/grid';
+
+@import './components/post';
+@import './components/page';
+@import './components/widget';
+@import './components/footer';
+@import './components/header';
+@import './components/comment';
+@import './components/search-form';
+@import './components/nav-links';
+
+// @import './utils/helpers';
+// @import './utils/flex';
+// @import './utils/margins';
+
+// THEME STYLE
+// TAILWINDCSS
+@import "tailwindcss/base";
+/*
+ * Custom Base:
+ */
+@layer base {
+  h1 {
+    @apply text-5xl;
+    @apply md:text-7xl;
+  }
+  h2 {
+    @apply text-2xl;
+    @apply md:text-4xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-base;
+  }
+  h5 {
+    @apply text-sm;
+  }
+  h6 {
+    @apply text-xs;
+  }
+}
+
+@import "tailwindcss/components";
+/*
+ * Components:
+ */
+
+@import "tailwindcss/utilities";
+
+/*
+ * Components:
+ */
+
+.entry-title > a {
+  @apply text-rouge-500;
+}
+
+nav.post-navigation .nav-links {
+	@apply py-8;
+}
+
+
+.mc4wp-form-fields > p {
+	@apply flex-col md:flex-row items-center space-y-4 md:space-y-0;
+
+	& > input {
+		@apply max-h-full h-[70px];
+	}
+
+}
+
+// @import 'components/html-body.scss';
+// header.site-header {
+//     background-color: #ef4b4c;
+
+    // #site-header__container {
+    //     background-color: #111C38;
+    // }
+// }
+
+
+// ADMIN-BAR HACK
+body.logged-in.admin-bar header#masthead {
+    margin-top: 32px;
+}
+
+menu-item > a > button.menu-button,
+menu-item > button:not(:hover):not(:active):not(.has-background)
+{
+  background: transparent !important;
+  background-color: none !important;
+}
+
+// Swiper styles
+.swiper,
+.swiper-labs
+{
+    // width: 300px;
+    width: var(--responsive--alignewide-width);
+		max-width: 100%;
+    min-height: 440px;
+		margin: 0 auto;
+    // @include media(tablet) {
+    //   width: 480px;
+    // }
+    // @include media(laptop) {
+    //   width: 800px;
+    // }
+		.swiper-wrapper {
+			// width:20000px;
+		}
+
+		.swiper-slide {
+
+			width: 300px;
+
+			// @include media(laptop) {
+      // 	width: 355px;
+    	// }
+
+			height: 520px;
+			max-width: 26rem;
+		}
+
+    /* ===============================================================
+    Pagination Styles
+    ================================================================*/
+    .swiper-pagination-switch {
+      /* Stylize pagination button: */
+
+    }
+    .swiper-active-switch {
+      /* Specific active button style: */
+
+    }
+    .swiper-visible-switch {
+      /* Specific visible button style: */
+
+    }
+}
+.swiper-projects
+{
+    // width: 300px;
+    width: var(--responsive--alignewide-width);
+		max-width: 100%;
+    min-height: 440px;
+		margin: 0 auto;
+    // @include media(tablet) {
+    //   width: 480px;
+    // }
+    // @include media(laptop) {
+    //   width: 800px;
+    // }
+		.swiper-wrapper {
+			// width:20000px;
+		}
+
+		.swiper-slide {
+
+			width: 300px;
+
+			// @include media(laptop) {
+      // 	width: 355px;
+    	// }
+
+			// height: 520px;
+			// max-width: 26rem;
+		}
+}
+
+
+// BACK TO TOP / STICKY CHAT BUTTON
+.top-link {
+  transition: all .25s ease-in-out;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: inline-flex;
+
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1em 2em 0;
+  border-radius: 50%;
+  padding: .1em;
+	z-index: 1;
+  width: 80px;
+  height: 80px;
+  background-color: var(--global--color-yellow);
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.hide {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  svg {
+    fill: var(--global--color-white);
+    width: 80px;
+    height: 80px;
+  }
+
+  &:hover {
+    background-color: var(--global--color-gray);
+
+    svg {
+      fill: var(--global--color-white);
+    }
+  }
+}
+
+// Text meant only for screen readers.
+.screen-reader-text {
+  position: absolute;
+  clip-path: inset(50%);
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  word-wrap: normal !important;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  &:focus {
+    display: block;
+    top: 5px;
+    left: 5px;
+    z-index: 100000; // Above WP toolbar
+    clip-path: none;
+    background-color: var(--global--color-purple);
+    padding: 15px 23px 14px;
+    width: auto;
+    height: auto;
+    text-decoration: none;
+    line-height: normal;
+    color: #444;
+    font-size: 1em;
+    clip: auto !important;
+  }
+}
+
+// FACILITIES GRID RESPONSIVENESS
+@media screen and (max-width: 900px) {
+
+	#facilities {
+		.grid-cols-4 {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+		}
+	}
+
+}
+
+// ACCORDION PROJECT SWIPER
+.accordion-item {
+  // background-color: #000000;
+  border-radius: .4rem;
+}
+
+.accordion-item hr {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.accordion-link {
+  // font-size: 1.6rem;
+  // color: rgba(255,255,255,.8);
+  text-decoration: none;
+  // background-color: #000000;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // padding: 1rem 0;
+}
+
+// .accordion-link h5 {
+//   font-weight:500;
+//   font-size: 20px;
+// }
+
+// .accordion-link span {
+//   // color: #e7d5ff;
+//   padding: .5rem;
+
+// }
+
+// .accordion-link ul{
+//   display:flex;
+//   align-items: flex-end;
+//   list-style-type: none;
+//   margin-left: 25px;
+// }
+
+// .accordion-link li{
+//   // font-size: 10px;
+//   // color: rgba(255, 255, 255, 0.4);
+//   padding: 0 0 1px 5px;
+// }
+
+// .accordion-link div {
+//   display: flex;
+// }
+
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  position: relative;
+  // background-color: #000;
+  transition: max-height 650ms;
+
+}
+
+// .accordion-content p {
+//   // color: #fff;
+//   // font-size: 15px;
+//   // padding: 2rem;
+// }
+
+.accordion-link .arrow-down {
+  display: none;
+}
+
+.accordion-item:target .accordion-content{
+    max-height: 30rem;
+}
+
+.accordion-item:target .accordion-link .arrow-forward{
+  display: none
+}
+
+.accordion-item:target .accordion-link .arrow-down{
+  display: block;
+}
+
+.group:focus .group-focus\:max-h-40 {
+	max-height: 10rem;
+}
+// TEST DEAD
+.accordion {
+  // font-size: 1rem;
+  // width: 30vw;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+// .accordion-header,
+// .accordion-body {
+//   // background: white;
+// }
+
+.accordion-header {
+  // padding: 1.5em 1.5em;
+  // background: #3F51B5;
+  // color: white;
+  cursor: pointer;
+  // font-size: .7em;
+  letter-spacing: .1em;
+  transition: all .3s;
+  // text-transform: uppercase;
+  @apply flex justify-between;
+}
+
+// .accordion__item {
+//     // border-bottom: 1px solid #3a4ba4;
+// }
+
+.accordion__item .accordion__item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.accordion-header:hover {
+  // background: #2D3D99;
+  position: relative;
+  z-index: 5;
+}
+
+.accordion-body {
+  // background: #fcfcfc;
+  // color: #353535;
+  display: none;
+}
+
+// .accordion-body__contents {
+//   // padding: 1.5em 1.5em;
+//   // font-size: .85em;
+// }
+
+.accordion__item.active:last-child .accordion-header {
+  border-radius: none;
+}
+
+.accordion:first-child > .accordion__item > .accordion-header {
+  border-bottom: 1px solid transparent;
+}
+
+.accordion__item > .accordion-header .icon.arrow-forward {
+  // content: "\f3d0";
+  // font-family: IonIcons;
+  // font-size: 1.2em;
+  // float: right;
+  position: relative;
+  top: -2px;
+  transition: .3s all;
+  transform: rotate(0deg);
+}
+
+.accordion__item.active > .accordion-header .icon.arrow-forward {
+  transform: rotate(90deg);
+}
+
+// .accordion__item.active .accordion-header {
+//   // background: #2D3D99;
+// }
+
+// .accordion__item .accordion__item .accordion-header {
+//   // background: #f1f1f1;
+//   // color: #353535;
+// }
+
+@media screen and (max-width: 1000px) {
+  .accordion {
+    width: 100%;
+  }
+}

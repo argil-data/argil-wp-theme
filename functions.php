@@ -132,13 +132,13 @@ if (!function_exists('argil_setup')) {
             add_theme_support('dark-editor-style');
         }
 
-        $editor_stylesheet_path = './assets_alt/css/style-editor.css';
+        $editor_stylesheet_path = './assets/css/style-editor.css';
 
         // Note, the is_IE global variable is defined by WordPress and is used
         // to detect if the current browser is internet explorer.
         global $is_IE;
         if ($is_IE) {
-            $editor_stylesheet_path = './assets_alt/css/ie-editor.css';
+            $editor_stylesheet_path = './assets/css/ie-editor.css';
         }
 
         // Enqueue editor styles.
@@ -445,10 +445,10 @@ function argil_skip_link_focus_fix()
     // If SCRIPT_DEBUG is defined and true, print the unminified file.
     if (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) {
         echo '<script>';
-        include get_template_directory() . '/assets_alt/js/skip-link-focus-fix.js';
+        include get_template_directory() . '/public/assets/js/skip-link-focus-fix.js';
         echo '</script>';
     } else {
-        // The following is minified via `npx terser --compress --mangle -- assets_alt/js/skip-link-focus-fix.js`.
+        // The following is minified via `npx terser --compress --mangle -- assets/js/skip-link-focus-fix.js`.
 ?>
         <script>
             /(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window.addEventListener("hashchange", (function() {
@@ -480,8 +480,12 @@ function argil_non_latin_languages()
 add_action('wp_enqueue_scripts', 'argil_non_latin_languages');
 
 
+
+
 // Assets Enqueuing
 require_once get_template_directory() . '/inc/assets-enqueuing.php';
+require_once dirname(__FILE__) . '/inc/assets.php';
+
 // Custom ADA Plugins Requirements
 // require_once get_template_directory() . '/inc/required-plugins.php';
 // Customize additional global infos fields
@@ -524,7 +528,7 @@ function argil_customize_preview_init()
 {
     wp_enqueue_script(
         'argil-customize-helpers',
-        get_theme_file_uri('/assets_alt/js/customize-helpers.js'),
+        get_theme_file_uri('/public/assets/js/customize-helpers.js'),
         array(),
         wp_get_theme()->get('Version'),
         true
@@ -532,7 +536,7 @@ function argil_customize_preview_init()
 
     wp_enqueue_script(
         'argil-customize-preview',
-        get_theme_file_uri('/assets_alt/js/customize-preview.js'),
+        get_theme_file_uri('/public/assets/js/customize-preview.js'),
         array('customize-preview', 'customize-selective-refresh', 'jquery', 'argil-customize-helpers'),
         wp_get_theme()->get('Version'),
         true
@@ -551,7 +555,7 @@ function argil_customize_controls_enqueue_scripts()
 {
     wp_enqueue_script(
         'argil-customize-helpers',
-        get_theme_file_uri('/assets_alt/js/customize-helpers.js'),
+        get_theme_file_uri('/public/assets/js/customize-helpers.js'),
         array(),
         wp_get_theme()->get('Version'),
         true

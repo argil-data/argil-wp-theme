@@ -1,0 +1,32 @@
+$header-font-family: 'Red Hat Display', 'Helvetica', 'Arial', sans-serif !default;
+$header-font-weight: $global-weight-normal !default;
+$header-font-style: normal !default;
+$font-family-monospace: 'Red Hat Mono', Consolas, 'Liberation Mono', Courier, monospace !default;
+$font-family-serif: 'serif' !default;
+$header-color: inherit !default;
+$header-lineheight: 1.4 !default;
+$header-margin-bottom: 0.5rem !default;
+$small-font-size: 80% !default;
+
+$header-small-font-color: #333333 !default;
+$paragraph-lineheight: 1.6 !default;
+$paragraph-margin-bottom: 1rem !default;
+
+$header-styles: (
+    small: (
+        'h1': ('font-size': 54),
+        'h2': ('font-size': 44),
+        'h3': ('font-size': 28),
+        'h4': ('font-size': 22),
+        'h5': ('font-size': 19),
+        'h6': ('font-size': 16),
+    ),
+    medium: (
+        'h1': ('font-size': 86),
+        'h2': ('font-size': 56),
+        'h3': ('font-size': 38),
+        'h4': ('font-size': 28),
+        'h5': ('font-size': 20),
+        'h6': ('font-size': 16),
+    ),
+) !default;

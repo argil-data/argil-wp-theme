@@ -1,6 +1,6 @@
 {
   "public/themes/argil-wp-theme/src/assets/js/main.css": {
-    "file": "assets/main-8672b75f.css",
+    "file": "assets/main-f2e60ced.css",
     "src": "public/themes/argil-wp-theme/src/assets/js/main.css"
   },
   "public/themes/argil-wp-theme/src/assets/js/main.js": {
@@ -17,9 +17,9 @@
       "assets/fa-brands-400-a3b98177.svg"
     ],
     "css": [
-      "assets/main-8672b75f.css"
+      "assets/main-f2e60ced.css"
     ],
-    "file": "assets/main-17bea12b.js",
+    "file": "assets/main-b176d65c.js",
     "isEntry": true,
     "src": "public/themes/argil-wp-theme/src/assets/js/main.js"
   },

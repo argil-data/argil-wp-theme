@@ -80,6 +80,7 @@ function addScript()
         wp_enqueue_script('vite', 'http://localhost:5173/@vite/client', [], null);
         // wp_enqueue_script('argil-theme', 'http://localhost:5173/public/src/assets/js/index.js', [], null);
         wp_enqueue_script('argil-theme', 'http://localhost:5173/public/themes/argil-wp-theme/src/assets/js/main.js', [], null);
+        wp_enqueue_script('argil-theme', 'http://localhost:5173/public/themes/argil-wp-theme/src/assets/main.ts', [], null);
         // wp_enqueue_script('argil-editor', 'http://localhost:5173/public/themes/argil-wp-theme/src/assets/js/editor.js', [], null);
     }
 }

@@ -137,10 +137,10 @@ $site_info = get_theme_mod('argil_site_info', 'argil');
 </div><!-- #page -->
 
 <!-- CHAT BUTTON -->
-<!-- 
+<!--
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
     <path d="M12 6H0l6-6z" />
-</svg> 
+</svg>
 -->
 <!-- <a class="top-link hide" href="/help/" target="_blank" id="js-top">
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="88" height="88" viewBox="0 0 88 88">
@@ -177,6 +177,13 @@ $site_info = get_theme_mod('argil_site_info', 'argil');
 </a> -->
 
 <?php wp_footer(); ?>
+<?php
+if (WP_ENV == 'development') {
+    echo ('<script type="module" src="http://localhost:5173/public/themes/argil-wp-theme/src/assets/main.ts"></script>');
+}
+// else ?
+
+?>
 
 </body>
 

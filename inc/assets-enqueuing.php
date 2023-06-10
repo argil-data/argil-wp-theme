@@ -90,60 +90,38 @@ function argil_scripts()
         wp_get_theme()->get('Version'),
         true
     );
-    wp_add_inline_script(
-        'argil-ie11-polyfills',
-        wp_get_script_polyfill(
-            $wp_scripts,
-            array(
-                'Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach' => 'argil-ie11-polyfills-asset',
-            )
-        )
-    );
+
+    // wp_add_inline_script(
+    //     'argil-ie11-polyfills',
+    //     wp_get_script_polyfill(
+    //         $wp_scripts,
+    //         array(
+    //             'Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach' => 'argil-ie11-polyfills-asset',
+    //         )
+    //     )
+    // );
 
     // Main navigation scripts.
-    if (has_nav_menu('primary')) {
-        wp_enqueue_script(
-            'argil-primary-navigation-script',
-            get_template_directory_uri() . '/dist/assets/js/primary-navigation.js',
-            array('argil-ie11-polyfills'),
-            wp_get_theme()->get('Version'),
-            true
-        );
-    }
+    // if (has_nav_menu('primary')) {
+    //     wp_enqueue_script(
+    //         'argil-primary-navigation-script',
+    //         get_template_directory_uri() . '/dist/assets/js/primary-navigation.js',
+    //         array('argil-ie11-polyfills'),
+    //         wp_get_theme()->get('Version'),
+    //         true
+    //     );
+    // }
 
     // Responsive embeds script.
-    wp_enqueue_script(
-        'argil-responsive-embeds-script',
-        get_template_directory_uri() . '/dist/assets/js/responsive-embeds.js',
-        array('argil-ie11-polyfills'),
-        wp_get_theme()->get('Version'),
-        true
-    );
+    // wp_enqueue_script(
+    //     'argil-responsive-embeds-script',
+    //     get_template_directory_uri() . '/dist/assets/js/responsive-embeds.js',
+    //     array('argil-ie11-polyfills'),
+    //     wp_get_theme()->get('Version'),
+    //     true
+    // );
 }
 add_action('wp_enqueue_scripts', 'argil_scripts');
-
-//
-// NEW WORDPLATE with VITE
-//
-// Register scripts and styles.
-// add_action('wp_enqueue_scripts', function () {
-//     $manifestPath = get_theme_file_path('assets/manifest.json');
-
-//     if (
-//         wp_get_environment_type() === 'local' &&
-//         is_array(wp_remote_get('http://localhost:5173/')) // is Vite.js running
-//     ) {
-
-//         wp_enqueue_script('vite', 'http://localhost:5173/@vite/client', [], null);
-//         wp_enqueue_script('argil', 'http://localhost:5173/src/assets/js/index.js', [], null);
-
-//     } elseif (file_exists($manifestPath)) {
-
-//         $manifest = json_decode(file_get_contents($manifestPath), true);
-//         wp_enqueue_script('argil', get_theme_file_uri('assets/' . $manifest['resources/js/index.js']['file']), [], null);
-//         wp_enqueue_style('argil', get_theme_file_uri('assets/' . $manifest['resources/js/index.css']['file']), [], null);
-//     }
-// });
 
 /**
  * Proper way to enqueue scripts and styles
@@ -179,10 +157,10 @@ function argil_scripts_enqueuing()
     wp_register_script('argil-vendor', get_template_directory_uri() . '/dist/assets/js/vendor.js', array(), wp_get_theme()->get('Version'), true);
     wp_register_script('argil', get_template_directory_uri() . '/dist/assets/js/main.js', array(), wp_get_theme()->get('Version'), true);
     wp_register_script('argil-bundle', get_template_directory_uri() . '/dist/assets/js/bundle.js', array(), wp_get_theme()->get('Version'), true);
-    wp_enqueue_script('manifest', get_template_directory_uri() . '/dist/assets/js/manifest.js', array(), $theme->get('Version'), true);
-    wp_enqueue_script('argil-vendor');
-    wp_enqueue_script('argil');
-    wp_enqueue_script('argil-bundle');
+    // wp_enqueue_script('manifest', get_template_directory_uri() . '/dist/assets/js/manifest.js', array(), $theme->get('Version'), true);
+    // wp_enqueue_script('argil-vendor');
+    // wp_enqueue_script('argil');
+    // wp_enqueue_script('argil-bundle');
 
     // Threaded comment reply styles.
     if (is_page('community') || is_archive('ada_labs')) {
@@ -216,3 +194,27 @@ function argil_block_editor_script()
     wp_enqueue_script('argil-editor', get_theme_file_uri('/dist/assets/js/editor.js'), array('wp-blocks', 'wp-dom'), wp_get_theme()->get('Version'), true);
 }
 add_action('enqueue_block_editor_assets', 'argil_block_editor_script');
+
+
+//
+// NEW WORDPLATE with VITE
+//
+// Register scripts and styles.
+// add_action('wp_enqueue_scripts', function () {
+//     $manifestPath = get_theme_file_path('assets/manifest.json');
+
+//     if (
+//         wp_get_environment_type() === 'local' &&
+//         is_array(wp_remote_get('http://localhost:5173/')) // is Vite.js running
+//     ) {
+
+//         wp_enqueue_script('vite', 'http://localhost:5173/@vite/client', [], null);
+//         wp_enqueue_script('argil', 'http://localhost:5173/src/assets/js/index.js', [], null);
+
+//     } elseif (file_exists($manifestPath)) {
+
+//         $manifest = json_decode(file_get_contents($manifestPath), true);
+//         wp_enqueue_script('argil', get_theme_file_uri('assets/' . $manifest['resources/js/index.js']['file']), [], null);
+//         wp_enqueue_style('argil', get_theme_file_uri('assets/' . $manifest['resources/js/index.css']['file']), [], null);
+//     }
+// });
